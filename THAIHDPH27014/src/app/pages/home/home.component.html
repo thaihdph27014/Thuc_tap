@@ -1,0 +1,183 @@
+<!-- HEADER -->
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
+
+<section id="home-section">
+  <div class="container mt-[-20px] mx-auto">
+    <div class="banner">
+      <img
+        src="https://img.freepik.com/premium-photo/animal-school-cute-playful-design-with-cat-amoung-books_887552-14175.jpg?w=1380"
+        class="w-full h-[570px]"
+        alt=""
+      />
+    </div>
+    <div class="row"></div>
+    <div class="text-center text-3xl font-sans font-bold mt-5">
+      <p>Who are you shopping for?</p>
+    </div>
+    <div class="container mx-auto">
+      <div class="grid mx-44 gap-5 grid-cols-4 justify-items-center">
+        <div
+          *ngFor="let product of filteredProducts"
+          class="my-3"
+          style="width: 18rem"
+        >
+          <div class="border">
+            <a
+              [routerLink]="['/product/', product._id]"
+              class="btn btn-primary"
+            >
+              <img src="{{ product.image }}" alt="" class="object-center" />
+            </a>
+            <div class="">
+              <h5 class="font-sans text-sm font-semibold text-gray-800 mt-3">
+                {{ product.name }}
+              </h5>
+              <p class="card-text font-light">Price: {{ product.price }}</p>
+              <div class="flex flex-col items-center">
+                <button
+                  (click)="addToCart(product)"
+                  type="button"
+                  class="hover:border mt-3 text-white bg-black hover:bg-white hover:text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="w-5 h-5 mr-2 -ml-1"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"
+                    ></path>
+                  </svg>
+                  Buy now
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="w-full flex mx-auto bg-yellow-50 justify-center gap-[60px] mt-10 pt-[50px]"
+    >
+      <div class="content max-w-[490px]">
+        <p class="text-4xl font-semibold">
+          Stories, style, <br />
+          and People in Thaibook
+        </p>
+
+        <p>
+          Come to a discussion with artist Pham Huy Thong. Using the paintings
+          in his ‘Dong Bao’ – From the Same Womb – series, internationally
+          acclaimed artist, 31 year old PHAM HUY THONG tells about the children
+          of Au Co and their more recent migrations, dispersals and activities.
+          Thong will have limited, original, inexpensive sketches on paper of
+          his work for sale (framed and unframed)….real collectors’ items. THEN:
+          Au Co was a fairy who lived in the mountains. One day a monster chased
+          her and she turned into a crane to fly away. Lac Long Quan, a dragon
+          king from the sea, saw her danger and killed the monster with a rock.
+          Au Co became a fairy again and fell in love with him. She bore an egg
+          sac from which hatched 100 children. Au Co wanted to live in the
+          mountains and he in the sea so they separated, each taking 50
+          children. She settled in the mountains of north Vietnamand the
+          children became the Hung Kings. He returned to the sea and the
+          children spread along the coast (the creation story….one version) NOW:
+          Using the paintings in his ‘Dong Bao’ – From the Same Womb – series,
+          internationally acclaimed artist, 31 year old PHAM HUY THONG tells
+          about the children of Au Co and their more recent migrations,
+          dispersals and activities. Thong’s paintings refer to images sourced
+          from Vietnamese mythology thru to the present from wherever Vietnamese
+          live, procreate, work, play and dream He has had successful
+          exhibitions of his satirical paintings inSingapore, Malaysia, Korea,
+          Japan and the USA. His work is sought after by private collectors.
+          Thong is fluent in English and has a quick wit. Entry : Free entry.
+          Free flow beer hoi…street food for sale
+        </p>
+      </div>
+      <div class="content max-w-[490px]">
+        <p class="text-4xl font-semibold">
+          Workout clothes, for <br />any sport <br /><br />
+        </p>
+        <p>
+          BOOKWORM SHOP is a treasure chest of great reading for both online and
+          actual book lovers. For the latter it is down a pleasant little lane
+          at 44 Chau Long Street that leads into a shady courtyard where you can
+          enjoy drinks, snacks and lunchtime meals. Then it’s into the bookshop
+          that has enticing reading spread over two colorful levels. Customers
+          are encouraged to browse at leisure for as long as they wish. One of
+          Bookworm’s features is a room dedicated to Vietnamese literature and
+          lifestyle, photo books, cook books and interesting artifacts BOOKWORM
+          was established in 2001 as Hanoi’s exclusively English language
+          bookshop and remains so today because we are Hanoi’s only English
+          bookshop with both a physical and an online presence. We have more
+          than 20 000 English books representing almost all genres in both new
+          and second hand editions.
+        </p>
+      </div>
+    </div>
+
+    <div
+      class="w-full flex h-[120px] gap-6 bg-yellow-300 text-center items-center justify-center align-middle"
+    >
+      <p class="text-4xl font-semibold pt-[15px]">
+        JOIN OUR Thaibook  GET 99,9% OFF
+      </p>
+      <button
+        class="w-[350px] h-[55px] bg-black text-white text-lg"
+        routerLink="/register"
+      >
+        SIGN UP FOR FREE
+      </button>
+    </div>
+  </div>
+</section>
+<div>
+  <footer class="bg-gray-900 text-white py-8">
+    <div class="container mx-auto flex flex-col md:flex-row justify-between">
+      <!-- Phần bên trái của footer -->
+      <div class="mb-4 ml-48 md:mb-0">
+        <h3 class="text-xl font-semibold mb-2">Liên hệ</h3>
+        <p>Địa chỉ: Trịn Văn Bô</p>
+
+        <p>Điện thoại: 0981*********</p>
+      </div>
+
+      <!-- Phần giữa của footer -->
+      <div class="mb-4 md:mb-0">
+        <h3 class="text-xl font-semibold mb-2">Sản phẩm</h3>
+        <ul>
+          <li><a href="#" class="text-gray-300 hover:text-white">Sách</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-white">Ebook</a></li>
+          <li>
+            <a href="#" class="text-gray-300 hover:text-white">Tạp chí</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Phần bên phải của footer -->
+      <div class="mr-48">
+        <h3 class="text-xl font-semibold mb-2">Kết nối với chúng tôi</h3>
+        <div class="flex space-x-4">
+          <a href="#" class="text-gray-300 hover:text-white"
+            ><i class="fab fa-facebook"></i
+          ></a>
+          <a href="#" class="text-gray-300 hover:text-white"
+            ><i class="fab fa-twitter"></i
+          ></a>
+          <a href="#" class="text-gray-300 hover:text-white"
+            ><i class="fab fa-instagram"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-gray-800 mt-8 pt-4 text-center">
+      <p>&copy; 2023 Tên Công Ty. Bản quyền được bảo lưu.</p>
+    </div>
+  </footer>
+</div>

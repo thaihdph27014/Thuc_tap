@@ -1,0 +1,94 @@
+
+
+<link rel="stylesheet" href="product-detail.component.scss">
+<div class="container mx-auto px-20 flex gap-5">
+  <div class="pl-24">
+    <div class=" anh1">
+      <img src="{{product.image}}" class="w-[400px]" alt="">
+    </div>
+   
+  </div>
+  <div class="p-4">
+    <div>
+      <div class="flex gap-4">
+      
+        <p class="font-medium text-2xl">{{product.name}} ({{product.quanlity}} cuốn)</p>
+       
+      </div>
+   
+    </div>
+    <div class="py-5 flex gap-3">
+      <p class="text-xl pt-[2px] text-black">Price:</p>
+      <p class="text-2xl font-medium text-red-500">{{product.price}}VNĐ</p>
+    </div>
+<p class="py-2" *ngIf="!showFullDescription">
+  {{product.desc.slice(0, 151)}}
+  <span *ngIf="product.desc.length > 151">
+    <button class="font-semibold" (click)="showFullDescription = true">...Xem thêm</button>
+  </span>
+</p>
+<p class="py-2" *ngIf="showFullDescription">{{product.desc}}</p>
+<span *ngIf="showFullDescription">
+  <button (click)="showFullDescription = false">Thu gọn</button>
+</span>
+    <br class="">
+    <div class="py-3">
+      <div class="px-5 py-2 bg-red-500 w-[150px] text-center text-white text-xl rounded-lg">
+        <button (click)="redirectToOrderPage(product._id.toString())">Đặt hàng</button>
+      </div>
+    </div>
+   
+  </div>
+</div>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+  
+<div class="w-full flex h-[120px] gap-6  bg-yellow-300 text-center items-center justify-center align-middle">
+  <p class="text-4xl font-semibold pt-[15px]">JOIN OUR ADICLUB & GET 15% OFF</p>
+  <button class="w-[350px] h-[55px] bg-black text-white text-lg"  routerLink="/register"> SIGN UP FOR FREE  </button>
+</div>
+<div>
+  <footer class="bg-gray-900 text-white py-8">
+    <div class="container mx-auto flex flex-col md:flex-row justify-between">
+      <!-- Phần bên trái của footer -->
+      <div class="mb-4 ml-48 md:mb-0">
+        <h3 class="text-xl font-semibold mb-2">Liên hệ</h3>
+        <p>Địa chỉ: Trịn Văn Bô</p>
+
+        <p>Điện thoại: 0981*********</p>
+      </div>
+
+      <!-- Phần giữa của footer -->
+      <div class="mb-4 md:mb-0">
+        <h3 class="text-xl font-semibold mb-2">Sản phẩm</h3>
+        <ul>
+          <li><a href="#" class="text-gray-300 hover:text-white">Sách</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-white">Ebook</a></li>
+          <li>
+            <a href="#" class="text-gray-300 hover:text-white">Tạp chí</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Phần bên phải của footer -->
+      <div class="mr-48">
+        <h3 class="text-xl font-semibold mb-2">Kết nối với chúng tôi</h3>
+        <div class="flex space-x-4">
+          <a href="#" class="text-gray-300 hover:text-white"
+            ><i class="fab fa-facebook"></i
+          ></a>
+          <a href="#" class="text-gray-300 hover:text-white"
+            ><i class="fab fa-twitter"></i
+          ></a>
+          <a href="#" class="text-gray-300 hover:text-white"
+            ><i class="fab fa-instagram"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-gray-800 mt-8 pt-4 text-center">
+      <p>&copy; 2023 Tên Công Ty. Bản quyền được bảo lưu.</p>
+    </div>
+  </footer>
+</div>

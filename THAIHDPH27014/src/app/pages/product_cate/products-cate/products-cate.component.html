@@ -1,0 +1,150 @@
+<section id="home-section ">
+  <div class="container mt-10 mx-auto">
+    <div class="container flex mx-auto">
+      <div class="w-1/5">
+        <!-- <ul>
+          <li *ngFor="let category of category">
+            <a [routerLink]="['/category', category.id]">{{ category.name }}</a>
+          </li>
+        </ul> -->
+        <form (submit)="searchProducts()">
+          <p>Tên sản phẩm</p>
+          <div class="input-group flex">
+            <input
+              type="text"
+              class="block w-[200px] p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-l-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              style="
+                border: 1px solid #ced4da;
+                border-radius: 0.25rem;
+                padding: 0.375rem 0.75rem;
+                font-size: 1rem;
+                line-height: 1.5;
+              "
+              [(ngModel)]="searchKeyword"
+              placeholder=""
+              name="searchKeyword"
+            />
+          </div>
+        </form>
+        <form (submit)="filterProductsByPrice()">
+          <p class="mt-2">Chọn khoảng giá</p>
+          <div class="flex">
+            <input
+              type="number"
+              id="min-price"
+              class="block w-[100px] p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="Min Price"
+              [(ngModel)]="minPrice"
+              name="minPrice"
+            />
+            -
+            <input
+              type="number"
+              id="max-price"
+              class="block w-[100px] p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="Max Price"
+              [(ngModel)]="maxPrice"
+              name="maxPrice"
+            />
+          </div>
+          <button
+            type="submit"
+            class="bg-blue-100 ml-14 mt-2 py-[6.9px] px-4 rounded-r-lg"
+          >
+            Áp dụng
+          </button>
+        </form>
+      </div>
+
+      <div class="grid w-3/4 gap-5 grid-cols-4 justify-items-center">
+        <div class="" *ngIf="filteredProducts.length === 0">
+          <p>No products found.</p>
+        </div>
+        <div
+          *ngFor="let product of filteredProducts"
+          class="my-3"
+          style="width: 18rem"
+        >
+          <div class="border">
+            <a
+              [routerLink]="['/product/', product._id]"
+              class="btn btn-primary"
+            >
+              <img src="{{ product.image }}" alt="" class="object-center" />
+            </a>
+            <div class="">
+              <h5 class="font-sans text-sm font-semibold text-gray-800 mt-3">
+                {{ product.name }}
+              </h5>
+              <p class="card-text font-light">Price: {{ product.price }}</p>
+              <div class="flex flex-col items-center">
+                <button
+                  (click)="addToCart(product)"
+                  type="button"
+                  class="hover:border mt-3 text-white bg-black hover:bg-white hover:text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="w-5 h-5 mr-2 -ml-1"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"
+                    ></path>
+                  </svg>
+                  Buy now
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div>
+  <footer class="bg-gray-900 text-white py-8">
+    <div class="container mx-auto flex flex-col md:flex-row justify-between">
+      <!-- Phần bên trái của footer -->
+      <div class="mb-4 ml-48 md:mb-0">
+        <h3 class="text-xl font-semibold mb-2">Liên hệ</h3>
+        <p>Địa chỉ: Trịn Văn Bô</p>
+
+        <p>Điện thoại: 0981*********</p>
+      </div>
+
+      <!-- Phần giữa của footer -->
+      <div class="mb-4 md:mb-0">
+        <h3 class="text-xl font-semibold mb-2">Sản phẩm</h3>
+        <ul>
+          <li><a href="#" class="text-gray-300 hover:text-white">Sách</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-white">Ebook</a></li>
+          <li>
+            <a href="#" class="text-gray-300 hover:text-white">Tạp chí</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Phần bên phải của footer -->
+      <div class="mr-48">
+        <h3 class="text-xl font-semibold mb-2">Kết nối với chúng tôi</h3>
+        <div class="flex space-x-4">
+          <a href="#" class="text-gray-300 hover:text-white"
+            ><i class="fab fa-facebook"></i
+          ></a>
+          <a href="#" class="text-gray-300 hover:text-white"
+            ><i class="fab fa-twitter"></i
+          ></a>
+          <a href="#" class="text-gray-300 hover:text-white"
+            ><i class="fab fa-instagram"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-gray-800 mt-8 pt-4 text-center">
+      <p>&copy; 2023 Tên Công Ty. Bản quyền được bảo lưu.</p>
+    </div>
+  </footer>
+</div>

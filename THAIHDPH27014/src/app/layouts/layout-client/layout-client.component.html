@@ -1,0 +1,52 @@
+<header>
+  
+    <div class="container mx-auto flex flex-wrap justify-between items-center ">
+     
+      <div>    <a href="http://localhost:4200" class="flex items-center">
+        <img src="https://images-workbench.99static.com/ByTA21n43KJLxC3-Fi4nbtv9e_A=/99designs-contests-attachments/112/112586/attachment_112586948" class="w-80 h-[200px] ml-[-50px]" alt="Flowbite Logo" />
+    </a></div>
+
+  <ul
+  class="flex ml-20 text-lg flex-col gap-10 p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+  
+  <li>
+    <a href="#"
+      class="hover:bg-teal-800 hover:text-white hover:text-2xl hover:px-7 hover:py-1 py-2 pl-3 pr-4  rounded-xl md:bg-transparent no-underline md:text-black md:p-0 md:dark:text-blue-500 hover:ease-in duration-300 ..."
+      aria-current="page" routerLink="/products">Tất cả sách</a>
+  </li>
+  <li>
+    <a href="#"
+      class="hover:bg-teal-800 hover:text-white hover:text-2xl hover:px-7 hover:py-1 py-2 pl-3 pr-4  rounded-xl md:bg-transparent no-underline md:text-black md:p-0 md:dark:text-blue-500 hover:ease-in duration-300 ..."
+      aria-current="page" routerLink="/products/category/6504257055f2c1d64eed115d">Sách tiếng anh sách</a>
+  </li>
+  <li>
+    <a href="#"
+      class="hover:bg-teal-800 hover:text-white hover:text-2xl hover:px-7 hover:py-1 py-2 pl-3 pr-4  rounded-xl md:bg-transparent no-underline md:text-black md:p-0 md:dark:text-blue-500 hover:ease-in duration-300 ..."
+      aria-current="page" routerLink="/products/category/6504253e55f2c1d64eed1159">Sách tiếng việt</a>
+  </li>
+  </ul>
+  <div class="flex  md:order-2 ml-40 ">
+    <div class="p-1.5 mr-7 flex gap-2">
+      <div *ngIf="user;else loginLogo" >
+       <img src="{{user.user.avt}}"  class="border rounded-lg w-[40px] h-[40px]" alt="">
+        <button class="hover:bg-black hover:text-white" (click)="logout()">Logout</button>
+      </div>
+      <ng-template #loginLogo>
+        <div class="flex items-center gap-3 justify-between ">
+          <a routerLink="/login"
+          class="hover:bg-teal-800 hover:text-white hover:text-base hover:px-3 hover:py-1  py-2 pl-3 pr-4 rounded-xl md:bg-transparent no-underline md:text-black md:p-0 md:dark:text-blue-500 hover:ease-in duration-300 ..."
+          aria-current="page" routerLink="/login">Đăng nhập</a>
+          <a routerLink="/login"
+          class="hover:bg-teal-800 hover:text-white hover:text-base hover:px-3 hover:py-1  py-2 pl-3 pr-4 rounded-xl md:bg-transparent no-underline md:text-black md:p-0 md:dark:text-blue-500 hover:ease-in duration-300 ..."
+          aria-current="page" routerLink="/register">Đăng ký</a>
+        </div>
+      </ng-template>
+      <mat-icon routerLink="/cart" class="cursor-pointer " class="ml-20">shopping_cart_border</mat-icon>
+    
+    </div>
+  
+  </div>
+  
+    </div>
+  </header>
+<router-outlet></router-outlet>

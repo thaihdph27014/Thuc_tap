@@ -1,0 +1,37 @@
+/* Ẩn danh sách con mặc định */
+#submenu {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background-color: white;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: -1;
+  }
+  
+  /* Hiển thị danh sách con khi hover vào mục menu gốc */
+  .relative:hover #submenu {
+    display: block;
+    z-index: 1;
+  }
+  
+  /* Tùy chỉnh kiểu dáng của submenu-trigger (Category 2) */
+  .submenu-trigger {
+    position: relative;
+  }
+  
+  /* Hiển thị danh sách con của Category 2 */
+  .submenu-trigger:hover + .submenu {
+    display: block;
+  }
+  
+  /* Ẩn danh sách con của Category 2 mặc định */
+  .submenu {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: 0;
+  }
+  
